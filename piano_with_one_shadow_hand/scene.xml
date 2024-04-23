@@ -1,6 +1,6 @@
 <mujoco model="stage">
   <compiler autolimits="true" angle="radian"/>
-  <option timestep="0.0050000000000000001" impratio="10"/>
+  <option timestep="0.005" impratio="10"/>
   <visual>
     <global azimuth="180" elevation="-50"/>
     <scale forcewidth="0.040000000000000001" contactwidth="0.20000000000000001" contactheight="0.029999999999999999"/>
