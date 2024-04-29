@@ -362,7 +362,7 @@
           <site name="rh_shadow_hand/rh_WRJ2_site" type="box" group="4" rgba="0 1 0 1" size="0.001 0.001 0.001"/>
         </body>
         <joint name="rh_shadow_hand/forearm_tx" type="slide" axis="-1 0 0" range="-0.25524999999999998 -0.044749999999999998" damping="67.476218032726166"/>
-        <joint name="rh_shadow_hand/forearm_ty" type="slide" axis="0 0 1" range="0 0.059999999999999998" damping="67.476218032726166"/>
+        <joint name="rh_shadow_hand/forearm_ty" type="slide" axis="0 0 1" range="-0.05 0.059999999999999998" damping="67.476218032726166"/>
         <site name="rh_shadow_hand/forearm_tx_site" type="box" group="4" rgba="0 1 0 1" size="0.001 0.001 0.001"/>
         <site name="rh_shadow_hand/forearm_ty_site" type="box" group="4" rgba="0 1 0 1" size="0.001 0.001 0.001"/>
       </body>
@@ -385,7 +385,7 @@
     <position name="rh_shadow_hand/rh_A_FFJ3" class="rh_shadow_hand/proximal" joint="rh_shadow_hand/rh_FFJ3"/>
     <position name="rh_shadow_hand/rh_A_FFJ0" class="rh_shadow_hand/middle_distal" tendon="rh_shadow_hand/rh_FFJ0"/>
     <position name="rh_shadow_hand/forearm_tx" class="rh_shadow_hand/" ctrlrange="-0.25524999999999998 -0.044749999999999998" joint="rh_shadow_hand/forearm_tx" kp="300"/>
-    <position name="rh_shadow_hand/forearm_ty" class="rh_shadow_hand/" ctrlrange="0 0.059999999999999998" joint="rh_shadow_hand/forearm_ty" kp="300"/>
+    <position name="rh_shadow_hand/forearm_ty" class="rh_shadow_hand/" ctrlrange="-0.05 0.059999999999999998" joint="rh_shadow_hand/forearm_ty" kp="300"/>
   </actuator>
   <sensor>
     <torque name="rh_shadow_hand/rh_WRJ2_torque" site="rh_shadow_hand/rh_WRJ2_site"/>
