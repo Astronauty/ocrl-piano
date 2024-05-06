@@ -1,0 +1,5 @@
+[deps]
+MIDI = "f57c4921-e30c-5f49-b073-3f2f2ada663e"
+MusicManipulations = "274955c0-c284-5bf7-b122-5ecd51c559de"
+MusicVisualizations = "8e838768-4b4f-4130-9d6d-43f7b35ca0d6"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
