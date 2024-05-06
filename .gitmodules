@@ -1,3 +1,6 @@
 [submodule "mujoco_menagerie"]
 	path = mujoco_menagerie
 	url = git@github.com:google-deepmind/mujoco_menagerie.git
+[submodule "dm_control"]
+	path = dm_control
+	url = git@github.com:google-deepmind/dm_control.git
