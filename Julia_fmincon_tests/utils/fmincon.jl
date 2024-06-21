@@ -251,8 +251,8 @@ function fmincon(cost::Function,
 
     # Get the solution
     res = MOI.get(solver, MOI.VariablePrimal(), x)
-    
-    return res 
+    # objs = MOI.get(solver, MOI.ObjectiveValue())
+    return res
     
 end
 

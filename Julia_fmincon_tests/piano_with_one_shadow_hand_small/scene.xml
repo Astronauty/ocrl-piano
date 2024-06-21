@@ -1,6 +1,6 @@
 <mujoco model="stage">
   <compiler autolimits="true" angle="radian"/>
-  <option timestep="0.01" impratio="10" integrator='implicitfast'/>
+  <option timestep="0.01" impratio="10"/>
   <visual>
     <global azimuth="180" elevation="-50"/>
     <scale forcewidth="0.040000000000000001" contactwidth="0.20000000000000001" contactheight="0.029999999999999999"/>
@@ -385,7 +385,7 @@
     <position name="rh_shadow_hand/rh_A_FFJ3" class="rh_shadow_hand/proximal" joint="rh_shadow_hand/rh_FFJ3"/>
     <position name="rh_shadow_hand/rh_A_FFJ0" class="rh_shadow_hand/middle_distal" tendon="rh_shadow_hand/rh_FFJ0"/>
     <position name="rh_shadow_hand/forearm_tx" class="rh_shadow_hand/" ctrlrange="-0.25524999999999998 -0.044749999999999998" joint="rh_shadow_hand/forearm_tx" kp="300"/>
-    <position name="rh_shadow_hand/forearm_ty" class="rh_shadow_hand/" ctrlrange="-0.05 0.059999999999999998" joint="rh_shadow_hand/forearm_ty" kp="300"/>
+    <position name="rh_shadow_hand/forearm_ty" class="rh_shadow_hand/" ctrlrange="0 0.059999999999999998" joint="rh_shadow_hand/forearm_ty" kp="300"/>
   </actuator>
   <sensor>
     <torque name="rh_shadow_hand/rh_WRJ2_torque" site="rh_shadow_hand/rh_WRJ2_site"/>
