@@ -21,18 +21,20 @@
           <position kp="8" ctrlrange="-1.57 1.57" forcerange="-5 5"/>
         </default>
         <default class="forearm_trans_x">
-          <joint axis="1 0 0" range="-0.2 0.2" type="slide" damping="25.0"/>
-          <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/>
-        </default>
+          <joint axis="1 0 0" range="-0.2 0.2" type="slide" damping="5.0"/>
+          <!-- <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/> -->
+          <motor ctrlrange="-10 10" forcerange="-10 10"/>
+        </default>        
         <default class="forearm_trans_y">
-          <joint axis="0 1 0" range="-0.5 0.5" type="slide" damping="25.0"/>
-          <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/>
+          <joint axis="0 1 0" range="-0.5 0.5" type="slide" damping="5.0"/>
+          <!-- <position ctrlrange="-50 50"/> -->
+          <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>
         <default class="forearm_trans_z">
-          <joint axis="0 0 1" range="-0.2 0.2" type="slide" damping="25.0"/>
-          <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/>
+          <joint axis="0 0 1" range="-0.2 0.2" type="slide" damping="5.0"/>
+          <!-- <position kp="80" ctrlrange="-1 1" forcerange="-500 500"/> -->
+          <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>
-
       </default>
 
       <default class="wrist">
@@ -327,16 +329,10 @@
     </fixed>
   </tendon>
 
-  <actuator>
-    <!-- <position name ="rh_A_forearm_free" joint="rh_forearm_free"/> -->
-    <!-- <position name ="rh_A_forearm_rot_x" joint="rh_forearm_rot_x" class="forearm_rot_x"/> -->
+  <!-- <actuator>
     <position name ="rh_A_forearm_trans_x" joint="rh_forearm_trans_x" class="forearm_trans_x"/>
     <position name ="rh_A_forearm_trans_y" joint="rh_forearm_trans_y" class="forearm_trans_y"/>
     <position name ="rh_A_forearm_trans_z" joint="rh_forearm_trans_z" class="forearm_trans_z"/>
-
-
-    <!-- <position name ="rh_A_forearm_rot_y" joint="rh_forearm_free" class="forearm_rot_y"/> -->
-
 
     <position name="rh_A_WRJ2" joint="rh_WRJ2" class="wrist_y"/>
     <position name="rh_A_WRJ1" joint="rh_WRJ1" class="wrist_x"/>
@@ -358,5 +354,33 @@
     <position name="rh_A_LFJ4" joint="rh_LFJ4" class="knuckle"/>
     <position name="rh_A_LFJ3" joint="rh_LFJ3" class="proximal"/>
     <position name="rh_A_LFJ0" tendon="rh_LFJ0" class="middle_distal"/>
+  </actuator> -->
+
+  <!-- Motor Controllers -->
+  <actuator>
+    <motor name ="rh_A_forearm_trans_x" joint="rh_forearm_trans_x" class="forearm_trans_x"/>
+    <motor name ="rh_A_forearm_trans_y" joint="rh_forearm_trans_y" class="forearm_trans_y"/>
+    <motor name ="rh_A_forearm_trans_z" joint="rh_forearm_trans_z" class="forearm_trans_z"/>
+
+    <motor name="rh_A_WRJ2" joint="rh_WRJ2" class="wrist_y"/>
+    <motor name="rh_A_WRJ1" joint="rh_WRJ1" class="wrist_x"/>
+    <motor name="rh_A_THJ5" joint="rh_THJ5" class="thbase"/>
+    <motor name="rh_A_THJ4" joint="rh_THJ4" class="thproximal"/>
+    <motor name="rh_A_THJ3" joint="rh_THJ3" class="thhub"/>
+    <motor name="rh_A_THJ2" joint="rh_THJ2" class="thmiddle"/>
+    <motor name="rh_A_THJ1" joint="rh_THJ1" class="thdistal"/>
+    <motor name="rh_A_FFJ4" joint="rh_FFJ4" class="knuckle"/>
+    <motor name="rh_A_FFJ3" joint="rh_FFJ3" class="proximal"/>
+    <motor name="rh_A_FFJ0" tendon="rh_FFJ0" class="middle_distal"/>
+    <motor name="rh_A_MFJ4" joint="rh_MFJ4" class="knuckle"/>
+    <motor name="rh_A_MFJ3" joint="rh_MFJ3" class="proximal"/>
+    <motor name="rh_A_MFJ0" tendon="rh_MFJ0" class="middle_distal"/>
+    <motor name="rh_A_RFJ4" joint="rh_RFJ4" class="knuckle"/>
+    <motor name="rh_A_RFJ3" joint="rh_RFJ3" class="proximal"/>
+    <motor name="rh_A_RFJ0" tendon="rh_RFJ0" class="middle_distal"/>
+    <motor name="rh_A_LFJ5" joint="rh_LFJ5" class="metacarpal"/>
+    <motor name="rh_A_LFJ4" joint="rh_LFJ4" class="knuckle"/>
+    <motor name="rh_A_LFJ3" joint="rh_LFJ3" class="proximal"/>
+    <motor name="rh_A_LFJ0" tendon="rh_LFJ0" class="middle_distal"/>
   </actuator>
 </mujoco>
