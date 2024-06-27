@@ -1,7 +1,7 @@
 <mujoco model="right_shadow_hand">
   <compiler angle="radian" meshdir="assets" autolimits="true"/>
 
-  <option cone="elliptic" impratio="10" timestep="0.001" integrator="implicitfast" gravity="0 0 0"/>
+  <option cone="elliptic" impratio="10" timestep="0.005" integrator="implicitfast" gravity="0 0 0"/>
 
   <!-- Positional Control -->
   <!-- <default>
