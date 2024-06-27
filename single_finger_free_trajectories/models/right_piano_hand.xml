@@ -1,10 +1,10 @@
 <mujoco model="right_shadow_hand">
   <compiler angle="radian" meshdir="assets" autolimits="true"/>
 
-  <option cone="elliptic" impratio="10" timestep="0.05" integrator="implicitfast" gravity="0 0 0"/>
+  <option cone="elliptic" impratio="10" timestep="0.001" integrator="implicitfast" gravity="0 0 0"/>
 
-
-  <default>
+  <!-- Positional Control -->
+  <!-- <default>
     <default class="right_hand">
       <mesh scale="0.001 0.001 0.001"/>
       <joint axis="1 0 0" damping="0.05" armature="0.0002" frictionloss="0.01"/>
@@ -22,17 +22,105 @@
         </default>
         <default class="forearm_trans_x">
           <joint axis="1 0 0" range="-0.2 0.2" type="slide" damping="5.0"/>
-          <!-- <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/> -->
+          <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/>
+        </default>        
+        <default class="forearm_trans_y">
+          <joint axis="0 1 0" range="-0.5 0.5" type="slide" damping="5.0"/>
+          <position kp="80" ctrlrange="-1 1" forcerange="-50 50"/>
+        </default>
+        <default class="forearm_trans_z">
+          <joint axis="0 0 1" range="-0.2 0.2" type="slide" damping="5.0"/>
+          <position kp="80" ctrlrange="-1 1" forcerange="-500 500"/>        </default>
+      </default>
+
+      <default class="wrist">
+        <joint damping="0.5"/>
+        <default class="wrist_y">
+          <joint axis="0 1 0" range="-0.523599 0.174533"/>
+          <position kp="10" ctrlrange="-0.523599 0.174533" forcerange="-10 10"/>        </default>
+        <default class="wrist_x">
+          <joint range="-0.698132 0.488692"/>
+          <position kp="8" ctrlrange="-0.698132 0.488692" forcerange="-5 5"/>        </default>
+      </default>
+
+      <default class="thumb">
+        <default class="thbase">
+          <joint axis="0 0 -1" range="-1.0472 1.0472"/>
+          <position kp="0.4" ctrlrange="-1.0472 1.0472" forcerange="-3 3"/>        </default>
+        <default class="thproximal">
+          <joint range="0 1.22173"/>
+          <position ctrlrange="0 1.22173" forcerange="-2 2"/>
+        </default>
+        <default class="thhub">
+          <joint range="-0.20944 0.20944"/>
+          <position kp="0.5" ctrlrange="-0.20944 0.20944"/>
+        </default>
+        <default class="thmiddle">
+          <joint axis="0 -1 0" range="-0.698132 0.698132"/>
+          <position kp="1.5" ctrlrange="-0.698132 0.698132"/>
+        </default>
+        <default class="thdistal">
+          <joint range="-0.261799 1.5708"/>
+          <position ctrlrange="-0.261799 1.5708"/>
+        </default>
+      </default>
+
+      <default class="metacarpal">
+        <joint axis="0.573576 0 0.819152" range="0 0.785398"/>
+        <position ctrlrange="0 0.785398"/>      
+      </default>
+      <default class="knuckle">
+        <joint axis="0 -1 0" range="-0.349066 0.349066"/>
+        <position ctrlrange="-0.349066 0.349066"/>
+      </default>
+      <default class="proximal">
+        <joint range="-0.261799 1.5708"/>
+        <position ctrlrange="-0.261799 1.5708"/>      
+      </default>
+      <default class="middle_distal">
+        <joint range="0 1.5708"/>
+        <position kp="0.5" ctrlrange="0 3.1415"/>
+      </default>
+
+      
+
+      <default class="plastic">
+        <geom solimp="0.5 0.99 0.0001" solref="0.005 1"/>
+        <default class="plastic_visual">
+          <geom type="mesh" material="black" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="plastic_collision">
+          <geom group="3"/>
+        </default>
+      </default>
+    </default>
+  </default> -->
+
+ <!-- Direct Force Control -->
+ <default>
+    <default class="right_hand">
+      <mesh scale="0.001 0.001 0.001"/>
+      <joint axis="1 0 0" damping="0.05" armature="0.0002" frictionloss="0.01"/>
+      <position forcerange="-1 1"/>
+
+      <default class ="forearm">
+        <joint damping="1.5"/>
+        <default class="forearm_rot_x">
+          <joint axis="1 0 0" range="-1.57 1.57"/>
+        </default>
+        <default class="forearm_rot_y">
+          <joint axis="0 1 0" range="-1.57 1.57"/>
+        </default>
+        <default class="forearm_trans_x">
+          <joint axis="1 0 0" range="-0.2 0.2" type="slide" damping="5.0"/>
           <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>        
         <default class="forearm_trans_y">
           <joint axis="0 1 0" range="-0.5 0.5" type="slide" damping="5.0"/>
-          <!-- <position ctrlrange="-50 50"/> -->
           <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>
         <default class="forearm_trans_z">
           <joint axis="0 0 1" range="-0.2 0.2" type="slide" damping="5.0"/>
-          <!-- <position kp="80" ctrlrange="-1 1" forcerange="-500 500"/> -->
           <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>
       </default>
@@ -41,12 +129,10 @@
         <joint damping="0.5"/>
         <default class="wrist_y">
           <joint axis="0 1 0" range="-0.523599 0.174533"/>
-          <!-- <position kp="10" ctrlrange="-0.523599 0.174533" forcerange="-10 10"/> -->
           <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>
         <default class="wrist_x">
           <joint range="-0.698132 0.488692"/>
-          <!-- <position kp="8" ctrlrange="-0.698132 0.488692" forcerange="-5 5"/> -->
           <motor ctrlrange="-10 10" forcerange="-10 10"/>
         </default>
       </default>
@@ -54,30 +140,25 @@
       <default class="thumb">
         <default class="thbase">
           <joint axis="0 0 -1" range="-1.0472 1.0472"/>
-          <!-- <position kp="0.4" ctrlrange="-1.0472 1.0472" forcerange="-3 3"/> -->
           <motor ctrlrange="-1 1" forcerange="-1 1"/>
         </default>
         <default class="thproximal">
           <joint range="0 1.22173"/>
-          <!-- <position ctrlrange="0 1.22173" forcerange="-2 2"/> -->
           <motor ctrlrange="-1 1" forcerange="-1 1"/>
 
         </default>
         <default class="thhub">
           <joint range="-0.20944 0.20944"/>
-          <!-- <position kp="0.5" ctrlrange="-0.20944 0.20944"/> -->
           <motor ctrlrange="-1 1" forcerange="-1 1"/>
 
         </default>
         <default class="thmiddle">
           <joint axis="0 -1 0" range="-0.698132 0.698132"/>
-          <!-- <position kp="1.5" ctrlrange="-0.698132 0.698132"/> -->
           <motor ctrlrange="-1 1" forcerange="-1 1"/>
 
         </default>
         <default class="thdistal">
           <joint range="-0.261799 1.5708"/>
-          <!-- <position ctrlrange="-0.261799 1.5708"/> -->
           <motor ctrlrange="-1 1" forcerange="-1 1"/>
 
         </default>
@@ -85,29 +166,25 @@
 
       <default class="metacarpal">
         <joint axis="0.573576 0 0.819152" range="0 0.785398"/>
-        <!-- <position ctrlrange="0 0.785398"/> -->
         <motor ctrlrange="-1 1" forcerange="-1 1"/>
       
       </default>
       <default class="knuckle">
         <joint axis="0 -1 0" range="-0.349066 0.349066"/>
-        <!-- <position ctrlrange="-0.349066 0.349066"/> -->
         <motor ctrlrange="-1 1" forcerange="-1 1"/>
 
       </default>
       <default class="proximal">
         <joint range="-0.261799 1.5708"/>
-        <!-- <position ctrlrange="-0.261799 1.5708"/> -->
         <motor ctrlrange="-1 1" forcerange="-1 1"/>
       
       </default>
       <default class="middle_distal">
         <joint range="0 1.5708"/>
-        <!-- <position kp="0.5" ctrlrange="0 3.1415"/> -->
         <motor ctrlrange="-1 1" forcerange="-1 1"/>
-
       </default>
 
+    
       <default class="plastic">
         <geom solimp="0.5 0.99 0.0001" solref="0.005 1"/>
         <default class="plastic_visual">
@@ -348,6 +425,7 @@
     </fixed>
   </tendon>
 
+  <!-- Positional Actuator -->
   <!-- <actuator>
     <position name ="rh_A_forearm_trans_x" joint="rh_forearm_trans_x" class="forearm_trans_x"/>
     <position name ="rh_A_forearm_trans_y" joint="rh_forearm_trans_y" class="forearm_trans_y"/>
@@ -402,4 +480,13 @@
     <motor name="rh_A_LFJ3" joint="rh_LFJ3" class="proximal"/>
     <motor name="rh_A_LFJ0" tendon="rh_LFJ0" class="middle_distal"/>
   </actuator>
+
+  <keyframe>
+    <key name='note1'
+      qpos="0.2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" 
+    />
+    <key qpos='0.0799707 -0.470135 0.0500139 -6.28025e-12 1.27233e-10 -0.052365 5.06097e-11 0.674372 0.676688 2.8536e-12 5.19206e-11 2.93943e-11 -2.28282e-12 -2.85284e-12 5.19031e-11 2.93864e-11 -2.28217e-12 9.12404e-11 -2.8512e-12 5.17638e-11 2.931e-11 -2.27499e-12 -2.8721e-14 6.53755e-11 4.22314e-11 -3.03682e-12 -1.01816e-12'/>
+    <key qpos='-4.80347e-05 0.309999 8.98153e-05 -1.02167e-11 0.275076 2.8028e-12 1.15348e-10 6.50327e-11 -5.03929e-12 2.80119e-12 1.15385e-10 6.50444e-11 -5.04007e-12 -2.18113e-12 0.251384 0.862997 0.865103 2.02733e-10 -2.80628e-12 1.15023e-10 6.49795e-11 -5.03721e-12 -5.36153e-14 1.45269e-10 9.38137e-11 -1.74212e-11 -5.83979e-12'/>
+    <key qpos='0.0600095 0.500002 -3.83172e-05 -2.05964e-07 0.275076 -1.07582e-10 -6.98758e-11 9.83562e-10 -1.15357e-10 -1.10863e-10 -7.21894e-11 1.02191e-09 -1.1993e-10 1.04485e-10 0.113924 1.04622e-09 -1.22971e-10 4.5158e-09 -2.58143e-11 0.269712 0.63558 0.63693 2.87004e-10 6.94892e-11 -9.22173e-10 -1.33095e-11 -7.86856e-12'/>
+  </keyframe>
 </mujoco>
