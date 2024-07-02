@@ -14,6 +14,7 @@
     <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
       markrgb="0.8 0.8 0.8" width="300" height="300"/>
     <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    <material name="marker" rgba="0.0 0.0 1.0 0.3"/>
   </asset>
 
   <worldbody>
@@ -25,5 +26,8 @@
       <geom type="ellipsoid" size="0.03 0.04 0.02" rgba="0.5 0.7 0.5 1" condim="6" priority="1"
         friction="0.5 0.01 0.003"/>
     </body> -->
+
+    <geom name="keymarker_1" pos="0.4601 -0.43 0.12" size="0.02" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
+    <geom name="keymarker_2" pos="0.3701 0.30 0.14" size="0.02" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
   </worldbody>
 </mujoco>
