@@ -276,6 +276,7 @@
                 <geom class="plastic_visual" mesh="f_middle"/>
                 <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision"/>
                 <body name="rh_ffdistal" pos="0 0 0.025">
+                  <site name="fingertip_index" pos="0 0 0" group="4"/>
                   <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1"
                     diaginertia="1.28092e-06 1.12092e-06 5.3e-07"/>
                   <joint name="rh_FFJ1" class="middle_distal"/>
@@ -301,6 +302,7 @@
                 <geom class="plastic_visual" mesh="f_middle"/>
                 <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision"/>
                 <body name="rh_mfdistal" pos="0 0 0.025">
+                  <site name="fingertip_middle" pos="0 0 0" group="4"/>
                   <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1"
                     diaginertia="1.28092e-06 1.12092e-06 5.3e-07"/>
                   <joint name="rh_MFJ1" class="middle_distal"/>
