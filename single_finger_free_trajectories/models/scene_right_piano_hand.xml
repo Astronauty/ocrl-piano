@@ -27,8 +27,8 @@
         friction="0.5 0.01 0.003"/>
     </body> -->
 
-    <geom name="keymarker_1" pos="0.4601 -0.43 0.12" quat="0.866 0 0 -0.5" size="0.02" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
-    <geom name="keymarker_2" pos="0.4601 -0.45 0.12" quat="0.866 0 0 -0.5" size="0.02" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
-    <geom name="keymarker_3" pos="0.4601 -0.47 0.12" quat="0.866 0 0 -0.5" size="0.02" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
+    <geom name="keymarker_1" pos="0.4601 -0.40 0.12" quat="0.866 0 0 -0.5" size="0.01" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
+    <geom name="keymarker_2" pos="0.4601 -0.45 0.12" quat="0.866 0 0 -0.5" size="0.01" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
+    <geom name="keymarker_3" pos="0.4601 -0.50 0.12" quat="0.866 0 0 -0.5" size="0.01" type="sphere" material="marker" contype="0" conaffinity="0" group="2"/>
   </worldbody>
 </mujoco>

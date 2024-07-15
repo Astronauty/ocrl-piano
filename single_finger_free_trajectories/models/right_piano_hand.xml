@@ -1,7 +1,7 @@
 <mujoco model="right_shadow_hand">
   <compiler angle="radian" meshdir="assets" autolimits="true"/>
 
-  <option cone="elliptic" impratio="10" timestep="0.001" integrator="implicitfast" gravity="0 0 0"/>
+  <option cone="elliptic" impratio="10" timestep="0.1" integrator="implicitfast" gravity="0 0 0"/>
 
   <!-- Positional Control -->
   <!-- <default>
@@ -276,7 +276,7 @@
                 <geom class="plastic_visual" mesh="f_middle"/>
                 <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision"/>
                 <body name="rh_ffdistal" pos="0 0 0.025">
-                  <site name="fingertip_index" pos="0 0 0.02" group="4"/>
+                  <site name="fingertip_index" pos="0 0 0.03" group="4"/>
                   <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1"
                     diaginertia="1.28092e-06 1.12092e-06 5.3e-07"/>
                   <joint name="rh_FFJ1" class="middle_distal"/>
@@ -302,7 +302,7 @@
                 <geom class="plastic_visual" mesh="f_middle"/>
                 <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision"/>
                 <body name="rh_mfdistal" pos="0 0 0.025">
-                  <site name="fingertip_middle" pos="0 0 0.02" group="4"/>
+                  <site name="fingertip_middle" pos="0 0 0.03" group="4"/>
                   <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1"
                     diaginertia="1.28092e-06 1.12092e-06 5.3e-07"/>
                   <joint name="rh_MFJ1" class="middle_distal"/>
@@ -328,7 +328,7 @@
                 <geom class="plastic_visual" mesh="f_middle"/>
                 <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision"/>
                 <body name="rh_rfdistal" pos="0 0 0.025">
-                  <site name="fingertip_index" pos="0 0 0.02" group="4"/>
+                  <site name="fingertip_ring" pos="0 0 0.03" group="4"/>
                   <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1"
                     diaginertia="1.28092e-06 1.12092e-06 5.3e-07"/>
                   <joint name="rh_RFJ1" class="middle_distal"/>
@@ -359,6 +359,7 @@
                   <geom class="plastic_visual" mesh="f_middle"/>
                   <geom size="0.009 0.0125" pos="0 0 0.0125" type="capsule" class="plastic_collision"/>
                   <body name="rh_lfdistal" pos="0 0 0.025">
+                    <site name="fingertip_little" pos="0 0 0.03" group="4"/>
                     <inertial mass="0.013" pos="0 0 0.0130769" quat="1 0 0 1"
                       diaginertia="1.28092e-06 1.12092e-06 5.3e-07"/>
                     <joint name="rh_LFJ1" class="middle_distal"/>
@@ -389,6 +390,7 @@
                   <geom size="0.009 0.009" pos="0 0 0.012" type="capsule" class="plastic_collision"/>
                   <geom size="0.01" pos="0 0 0.03" class="plastic_collision"/>
                   <body name="rh_thdistal" pos="0 0 0.032" quat="1 0 0 -1">
+                    <site name="fingertip_thumb" pos="0 0 0.03" group="4"/>
                     <inertial mass="0.017" pos="0 0 0.0145588" quat="1 0 0 1"
                       diaginertia="2.37794e-06 2.27794e-06 1e-06"/>
                     <joint name="rh_THJ1" class="thdistal"/>
