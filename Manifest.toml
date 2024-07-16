@@ -1,8 +1,8 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.10.4"
+julia_version = "1.10.2"
 manifest_format = "2.0"
-project_hash = "e35270204aef09d9e3b9eb5a83116d6442ccc771"
+project_hash = "6206f8eb41db51f4f1d98680d959167692962fbc"
 
 [[deps.ARFIMA]]
 deps = ["LinearAlgebra", "Random", "StaticArrays", "Test"]
@@ -88,7 +88,7 @@ weakdeps = ["Dates", "LinearAlgebra"]
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.1.1+0"
+version = "1.1.0+0"
 
 [[deps.Conda]]
 deps = ["Downloads", "JSON", "VersionParsing"]
