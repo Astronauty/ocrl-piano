@@ -175,7 +175,7 @@ function fmincon(cost::Function,
                  tol = 1e-4,
                  c_tol = 1e-4,
                  max_iters = 1_000,
-                 verbose = true)::Vector
+                 verbose = true)::Tuple{Vector,Float64}
     
     n_primals = length(x0)
     n_eq = length(equality_constraint(params, x0))
@@ -251,8 +251,10 @@ function fmincon(cost::Function,
 
     # Get the solution
     res = MOI.get(solver, MOI.VariablePrimal(), x)
-    # objs = MOI.get(solver, MOI.ObjectiveValue())
-    return res
+    objs = MOI.get(solver, MOI.ObjectiveValue())
+    term_status = MOI.get(solver, MOI.TerminationStatus())
+
+    return (res, objs)
     
 end
 

@@ -5,23 +5,27 @@ finger_set = 1:5
 
 mode_sequences = multiset_permutations(finger_set, 3)
 
-for mode_sequence in mode_sequences
-    println(mode_sequence)
-end
+mode_sequences_array = collect(mode_sequences)
+random_mode_sequence = rand(mode_sequences_array)
+println(random_mode_sequence)
 
-println(length(mode_sequences))
+# for mode_sequence in mode_sequences
+#     println(mode_sequence)
+# end
+
+# println(length(mode_sequences))
 
 
-function mode_constraints(time, mode_sequence, midi_file)
-    """
-    Return mode constraints for a piano playing problem. The mode sequence describes the fingers assigned to each note.
-    """
-    midi = load("C_scale.mid")
+# function mode_constraints(time, mode_sequence, midi_file)
+#     """
+#     Return mode constraints for a piano playing problem. The mode sequence describes the fingers assigned to each note.
+#     """
+#     midi = load("C_scale.mid")
 
-    # midi = load("bach_846.mid")
-    notes = getnotes(midi.tracks[1], midi.tpq)
+#     # midi = load("bach_846.mid")
+#     notes = getnotes(midi.tracks[1], midi.tpq)
     
 
-    @assert length(mode_sequence) == length(notes)
+#     @assert length(mode_sequence) == length(notes)
     
-end
+# end
