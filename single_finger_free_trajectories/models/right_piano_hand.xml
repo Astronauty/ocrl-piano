@@ -1,7 +1,7 @@
 <mujoco model="right_shadow_hand">
   <compiler angle="radian" meshdir="assets" autolimits="true"/>
 
-  <option cone="elliptic" impratio="10" timestep="0.1" integrator="implicitfast" gravity="0 0 0"/>
+  <option cone="elliptic" impratio="10" timestep="0.01" integrator="implicitfast" gravity="0 0 0"/>
 
   <!-- Positional Control -->
   <!-- <default>
@@ -96,12 +96,14 @@
     </default>
   </default> -->
 
- <!-- Direct Force Control -->
- <default>
+  <!-- Direct Force Control -->
+  <default>
     <default class="right_hand">
       <mesh scale="0.001 0.001 0.001"/>
       <joint axis="1 0 0" damping="0.05" armature="0.0002" frictionloss="0.01"/>
-      <position forcerange="-1 1"/>
+      <!-- <position forcerange="-50 50"/> -->
+      <!-- <motor ctrllimited="false" forcelimited="false"/> -->
+      <motor ctrlrange="-1000 1000"/>
 
       <default class ="forearm">
         <joint damping="1.5"/>
@@ -113,15 +115,15 @@
         </default>
         <default class="forearm_trans_x">
           <joint axis="1 0 0" range="-0.2 0.2" type="slide" damping="5.0"/>
-          <motor ctrlrange="-10 10" forcerange="-10 10"/>
+          <!-- <motor ctrlrange="-10 10" forcerange="-10 10"/> -->
         </default>        
         <default class="forearm_trans_y">
           <joint axis="0 1 0" range="-0.5 0.5" type="slide" damping="5.0"/>
-          <motor ctrlrange="-10 10" forcerange="-10 10"/>
+          <!-- <motor ctrlrange="-10 10" forcerange="-10 10"/> -->
         </default>
         <default class="forearm_trans_z">
           <joint axis="0 0 1" range="-0.2 0.2" type="slide" damping="5.0"/>
-          <motor ctrlrange="-10 10" forcerange="-10 10"/>
+          <!-- <motor ctrlrange="-10 10" forcerange="-10 10"/> -->
         </default>
       </default>
 
@@ -129,59 +131,59 @@
         <joint damping="0.5"/>
         <default class="wrist_y">
           <joint axis="0 1 0" range="-0.523599 0.174533"/>
-          <motor ctrlrange="-10 10" forcerange="-10 10"/>
+          <!-- <motor ctrlrange="-10 10" forcerange="-10 10"/> -->
         </default>
         <default class="wrist_x">
           <joint range="-0.698132 0.488692"/>
-          <motor ctrlrange="-10 10" forcerange="-10 10"/>
+          <!-- <motor ctrlrange="-10 10" forcerange="-10 10"/> -->
         </default>
       </default>
 
       <default class="thumb">
         <default class="thbase">
           <joint axis="0 0 -1" range="-1.0472 1.0472"/>
-          <motor ctrlrange="-1 1" forcerange="-1 1"/>
+          <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
         </default>
         <default class="thproximal">
           <joint range="0 1.22173"/>
-          <motor ctrlrange="-1 1" forcerange="-1 1"/>
+          <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
 
         </default>
         <default class="thhub">
           <joint range="-0.20944 0.20944"/>
-          <motor ctrlrange="-1 1" forcerange="-1 1"/>
+          <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
 
         </default>
         <default class="thmiddle">
           <joint axis="0 -1 0" range="-0.698132 0.698132"/>
-          <motor ctrlrange="-1 1" forcerange="-1 1"/>
+          <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
 
         </default>
         <default class="thdistal">
           <joint range="-0.261799 1.5708"/>
-          <motor ctrlrange="-1 1" forcerange="-1 1"/>
+          <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
 
         </default>
       </default>
 
       <default class="metacarpal">
         <joint axis="0.573576 0 0.819152" range="0 0.785398"/>
-        <motor ctrlrange="-1 1" forcerange="-1 1"/>
+        <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
       
       </default>
       <default class="knuckle">
         <joint axis="0 -1 0" range="-0.349066 0.349066"/>
-        <motor ctrlrange="-1 1" forcerange="-1 1"/>
+        <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
 
       </default>
       <default class="proximal">
         <joint range="-0.261799 1.5708"/>
-        <motor ctrlrange="-1 1" forcerange="-1 1"/>
+        <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
       
       </default>
       <default class="middle_distal">
         <joint range="0 1.5708"/>
-        <motor ctrlrange="-1 1" forcerange="-1 1"/>
+        <!-- <motor ctrlrange="-1 1" forcerange="-1 1"/> -->
       </default>
 
     
@@ -196,6 +198,7 @@
       </default>
     </default>
   </default>
+
 
   <asset>
     <material name="black" specular="0.5" shininess="0.25" rgba="0.16355 0.16355 0.16355 1"/>
@@ -487,6 +490,9 @@
   </actuator>
 
   <keyframe>
+    <key name='neutral'
+      qpos='0.00997183 -0.209972 0.00990915 -1.49735e-10 0.085188 5.36454e-11 2.23554e-11 0.447411 0.463769 5.23797e-11 1.82296e-11 0.574483 0.588057 -5.19199e-11 0.003956 0.591765 0.602195 0.184569 -0.066329 -0.060192 0.662445 0.672905 0.36645 0.69654 -0.2094 0.621309 0.187236'
+    />
     <key name='note1'
       qpos="0.2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" 
     />

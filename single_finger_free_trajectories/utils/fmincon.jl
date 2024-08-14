@@ -174,7 +174,10 @@ function fmincon(cost::Function,
                  diff_type::Symbol;
                  tol = 1e-4,
                  c_tol = 1e-4,
+                 dual_inf_tol = 1e-4,
+                 compl_inf_tol = 1e-4,
                  max_iters = 1_000,
+                 max_wall_time = 60.0,
                  verbose = true)::Tuple{Vector,Float64}
     
     n_primals = length(x0)
@@ -227,6 +230,10 @@ function fmincon(cost::Function,
     solver.options["max_iter"] = max_iters
     solver.options["tol"] = tol
     solver.options["constr_viol_tol"] = c_tol
+    solver.options["dual_inf_tol"] = dual_inf_tol
+    solver.options["compl_inf_tol"] = compl_inf_tol
+    solver.options["max_wall_time"] = max_wall_time
+
     
     if verbose 
         solver.options["print_level"] = 5
